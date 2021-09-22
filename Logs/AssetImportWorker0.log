@@ -339,3 +339,11 @@ Received Import Request.
 Start importing Assets/Scripts/MenuManager.cs using Guid(d666e284d27b440178524d4ac35c082c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edf2debbdf60f402be2386b18d6d74ad') in 0.008432 seconds 
   Import took 0.013666 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 3617.948186 seconds.
+  path: Assets/Scenes/New Scene.unity
+  artifactKey: Guid(c15430635892e44829bc750050248a40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/New Scene.unity using Guid(c15430635892e44829bc750050248a40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af9817ce9915bb2585e889e9800559c7') in 0.123868 seconds 
+  Import took 0.220104 seconds .
+
