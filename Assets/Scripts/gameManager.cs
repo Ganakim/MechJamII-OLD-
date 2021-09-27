@@ -30,9 +30,15 @@ public class gameManager : MonoBehaviour {
         maxRooms = Mathf.Clamp(maxRooms, minRooms, maxX * maxY);
         Debug.Log("Generating Level with " + minRooms + "-" + maxRooms + " rooms, in a " + maxX + "x" + maxY + " grid:");
         GenerateLevel();
-        foreach (KeyValuePair<int,Room> a in level) {
+        Debug.Log("Done!");
+        foreach (KeyValuePair<int, Room> a in level) {
             Debug.Log(a.Key + ": " + JsonUtility.ToJson(a.Value).ToString());
         }
+        // Debug.Log(JsonUtility.ToJson(new Part(1)).ToString());
+        // Debug.Log(JsonUtility.ToJson(new Part(2)).ToString());
+        // Debug.Log(JsonUtility.ToJson(new Part(3)).ToString());
+        // Debug.Log(JsonUtility.ToJson(new Part(4)).ToString());
+        // Debug.Log(JsonUtility.ToJson(new Part(5)).ToString());
     }
 
     void Update() {
@@ -44,13 +50,14 @@ public class gameManager : MonoBehaviour {
         Debug.Log("Starting at Index of " + start);
         GenerateRoom(start);
         void GenerateRoom(int index, string dir = null) {
-            level[index] = new Room(index, opposites[dir]);
+            Room room = new Room(index, dir != null ? opposites[dir] : null);
+            level.Add(index, room);
             string[] dirs = new string[]{"north", "east", "south", "west"};
             shuffle(dirs);
             foreach (string d in dirs) {
-                var dirInfo = level[index].exit(d);
+                var dirInfo = room.exit(d);
                 if (dirInfo.room == null && !dirInfo.wall) {
-                    Debug.Log("Creating room: " + dirInfo.i);
+                    Debug.Log("Creating room: " + dirInfo.i + " " + d + " of here");
                     GenerateRoom(dirInfo.i, d);
                 }
             }
